@@ -10,5 +10,27 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 	<flow name="myappliFlow" doc:id="3696ad4e-208a-4f56-a65f-032c66af7d0a" >
 		<http:listener doc:name="Listener" doc:id="30b10334-222e-4e6e-b47d-1886a56fe96a" config-ref="HTTP_Listener_config" path="/hello"/>
 		<set-payload value='#["hello"]' doc:name="Set Payload" doc:id="ac7d3e7d-dd7b-4f67-92d1-1d739ce57076" />
+		
+		
+		<configuration>
+					<classifier>mule-application</classifier>
+					<cloudHubDeployment>
+						<uri>https://anypoint.mulesoft.com</uri>
+						<muleVersion>${muleVersion}</muleVersion>
+						<username>${username}</username>
+						<password>${password}</password>
+						<applicationName>${applicationName}</applicationName>
+						<environment>${environment}</environment>
+						<businessGroup>${businessGroup}</businessGroup>
+						<workerType>${workerType}</workerType>
+						<objectStoreV2>true</objectStoreV2>
+						<properties>
+							<anypoint.platform.client_id>${anypoint.platform.client_id}</anypoint.platform.client_id>
+							<anypoint.platform.client_secret>${anypoint.platform.client_secret}</anypoint.platform.client_secret>
+						</properties>
+					</cloudHubDeployment>
+					
+					
+				</configuration>
 	</flow>
 </mule>
